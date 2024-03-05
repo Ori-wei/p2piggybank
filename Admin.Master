@@ -1,0 +1,168 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Loh_Yuen_Wei_TP063508_FYP_P2P_Lending_Platform.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="0-Client Template.css" />
+    <link rel="stylesheet" href="Admin.css" />
+    <style>
+        .navbar{
+            height: 250px;
+        }
+        /* Dropdown Menu Styles */
+        .dropdown-menu {
+            flex-direction: column;
+            padding-left: 0;
+            color: black;
+            font-size: 20px;
+            font-family: Inter;
+        }
+
+        /* Dropdown Menu Link Styles */
+        .dropdown-link {
+            text-decoration: none;
+            color: #667085;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 25px 15px;
+            display: block;
+            width: 90%;
+        }
+
+        .dropdown-link:hover {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <script>
+            let web3 = new Web3(window.ethereum);
+            const message = "Please sign this message to confirm your identity.";
+
+            async function requestAccount() {
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                return accounts[0];
+            }
+
+            async function signIn() {
+                try {
+                    const account = await requestAccount();
+                    const signature = await web3.eth.personal.sign(message, account, '');
+
+                    const isVerified = await verifySignature(account, signature);
+                    if (isVerified) {
+                        sessionStorage.setItem('publicKey', account);
+                        updateButtonWithAddress(account);
+                        window.location.href = "Admin Integrity Check.aspx";
+                    } else {
+                        alert('Failed to sign in!');
+                    }
+                } catch (error) {
+                    console.error(error);
+                    alert('Error signing in: ' + error.message);
+                }
+            }
+
+            async function verifySignature(account, signature) {
+                const signer = await web3.eth.personal.ecRecover(message, signature);
+                return signer.toLowerCase() === account.toLowerCase();
+            }
+
+            function updateButtonWithAddress(address) {
+                const firstSix = address.substring(0, 6);
+                const lastSix = address.substring(address.length - 6);
+                const shortenedAddress = firstSix + "...." + lastSix;
+
+                var btn = document.getElementById('<%= btnConnectWallet.ClientID %>');
+
+                // Check if the button is an input or a button element
+                if (btn.tagName === 'INPUT') {
+                    // For input elements like <input type="submit">
+                    btn.value = shortenedAddress;
+                } else {
+                    // For button elements like <button type="submit">
+                    btn.innerText = shortenedAddress;
+                }
+
+                const publicKey = address;
+                document.getElementById('<%= publicKeyHolder.ClientID %>').value = publicKey;
+                setSessionPublicKey(publicKey);
+            }
+
+            // set public Key as session variable
+            function setSessionPublicKey(publicKey) {
+                $.ajax({
+                    type: "POST",
+                    url: "Admin.asmx/SetSessionPublicKey", // Replace with your actual endpoint
+                    data: JSON.stringify({ publicKey: publicKey }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log("Session public key set successfully.");
+                        if (!sessionStorage.getItem('redirected')) {
+                            sessionStorage.setItem('redirected', 'true');
+                            window.location.href = 'Admin Integrity Check.aspx';
+                        }
+                    },
+                    error: function (error) {
+                        console.error("Error setting session public key.", error);
+                    }
+                });
+            }
+
+            // Call this function on page load or when the DOM is fully loaded
+            function initializeWalletButton() {
+                // Check if the wallet address is stored in the session
+                const walletAddress = sessionStorage.getItem('publicKey');
+                console.log("Wallet address from session storage: " + walletAddress);
+                if (walletAddress) {
+                    updateButtonWithAddress(walletAddress);
+                    console.log("update button success!");
+                }
+            }
+
+            // Call initializeWalletButton when the document is ready
+            document.addEventListener('DOMContentLoaded', initializeWalletButton);
+        </script>
+        <section>
+            <!-- Logo -->
+            <a href="Admin Integrity Check.aspx" title="Go to Integrity Check">
+                <img id="logo" src="images/logo-lightbg.png" alt="Logo" />
+            </a>
+
+            <asp:HiddenField ID="publicKeyHolder" runat="server" value=""/>
+
+            <!-- Connect Wallet Button -->
+            <div id="ConnectWalletFrame">
+                <asp:Button ID="btnConnectWallet" runat="server" Text="CONNECT WALLET" BackColor="#AFBCD5" BorderStyle="None" BorderWidth="0px" OnClientClick="signIn(); return false;" />
+            </div>
+        </section>
+        
+
+        <!-- Navigation bar -->
+        <nav class="navbar">
+            <div class="dropdown-menu">
+                <a href="Admin Integrity Check.aspx" class="dropdown-link">Integrity Check</a>
+                <a href="Admin Background Verification 1.aspx" class="dropdown-link">Background Verification</a>
+                <a href="Admin Financing Approval 1.aspx" class="dropdown-link">Financing Approval</a>
+            </div>
+        </nav>
+        
+        <div id="container-body-content">
+            <!--Actual Content-->
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

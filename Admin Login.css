@@ -1,0 +1,53 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body {
+    background: #FFFEF9;
+    font-family: Inter;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    /*height: 100vh;  Use the full height of the viewport */
+    align-items: center; /*Center vertically */
+    margin: 0; /* Remove default margin */
+}
+
+#form1 {
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    margin-top: 120px;
+    padding-left: 50px;
+}
+
+.formTitle {
+    font-size: 55px;
+    text-align: center;
+    display: block;
+}
+
+#ConnectWalletFrame {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 220px;
+    height: 64px;
+    background: #AFBCD5;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 60px;
+    box-shadow: 0 4px 35px rgba(0, 0, 0, 0.1);
+}
+
+#btnConnectWallet {
+    color: #FFFEF9;
+    font-size: 15px;
+    font-family: Inter;
+    font-weight: 600;
+    word-wrap: break-word;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    padding: 5px 20px;
+}

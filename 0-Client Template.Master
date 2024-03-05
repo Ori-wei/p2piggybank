@@ -1,0 +1,158 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="0-Client Template.Master.cs" Inherits="Loh_Yuen_Wei_TP063508_FYP_P2P_Lending_Platform.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="0-Client Template.css" />
+    <link rel="stylesheet" href="table.css" />
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
+        <script>
+            let web3 = new Web3(window.ethereum);
+            const message = "Please sign this message to confirm your identity.";
+
+            async function requestAccount() {
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                return accounts[0];
+            }
+
+            async function signIn() {
+                try {
+                    const account = await requestAccount();
+                    const signature = await web3.eth.personal.sign(message, account, '');
+
+                    const isVerified = await verifySignature(account, signature);
+                    if (isVerified) {
+                        sessionStorage.setItem('publicKey', account);
+                        updateButtonWithAddress(account);
+                        window.location.href = "1-Client Homepage.aspx";
+                    } else {
+                        alert('Failed to sign in!');
+                    }
+                } catch (error) {
+                    console.error(error);
+                    alert('Error signing in: ' + error.message);
+                }
+            }
+
+            async function verifySignature(account, signature) {
+                const signer = await web3.eth.personal.ecRecover(message, signature);
+                return signer.toLowerCase() === account.toLowerCase();
+            }
+
+            function updateButtonWithAddress(address) {
+                const firstSix = address.substring(0, 6);
+                const lastSix = address.substring(address.length - 6);
+                const shortenedAddress = firstSix + "...." + lastSix;
+
+                var btn = document.getElementById('<%= btnConnectWallet.ClientID %>');
+
+                if (btn.tagName === 'INPUT') {
+                    btn.value = shortenedAddress;
+                } else {
+                    btn.innerText = shortenedAddress;
+                }
+
+                const publicKey = address;
+                document.getElementById('<%= publicKeyHolder.ClientID %>').value = publicKey;
+                setSessionPublicKey(publicKey);
+            }
+
+            // set public Key as session variable
+            function setSessionPublicKey(publicKey) {
+                $.ajax({
+                    type: "POST",
+                    url: "Test.asmx/SetSessionPublicKey",
+                    data: JSON.stringify({ publicKey: publicKey }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log("Session public key set successfully.");
+                        if (!sessionStorage.getItem('redirected')) {
+                            sessionStorage.setItem('redirected', 'true');
+                            window.location.href = '1-Client Homepage.aspx';
+                        }
+                    },
+                    error: function (error) {
+                        console.error("Error setting session public key.", error);
+                    }
+                });
+            }
+
+            // Call this function on page load or when the DOM is fully loaded
+            function initializeWalletButton() {
+                // Check if the wallet address is stored in the session
+                const walletAddress = sessionStorage.getItem('publicKey');
+                console.log("Wallet address from session storage: " + walletAddress);
+                if (walletAddress) {
+                    updateButtonWithAddress(walletAddress);
+                    console.log("update button success!");
+                }
+            }
+
+            // Call initializeWalletButton when the document is ready
+            document.addEventListener('DOMContentLoaded', initializeWalletButton);
+            
+        </script>
+        <section>
+            <!-- Logo -->
+            <a href="1-Client HomePage.aspx" title="Go to Homepage">
+                <img id="logo" src="images/logo-lightbg.png" alt="Logo" />
+            </a>
+
+            <asp:HiddenField ID="publicKeyHolder" runat="server" value=""/>
+
+            <!-- Connect Wallet Button -->
+            <div id="ConnectWalletFrame">
+                <asp:Button ID="btnConnectWallet" runat="server" Text="CONNECT WALLET" 
+                    BackColor="#AFBCD5" BorderStyle="None" BorderWidth="0px" OnClientClick="signIn(); return false;" />
+            </div>
+        </section>
+        
+
+        <!-- Navigation bar -->
+        <nav class="navbar" runat="server" id="navBar">
+            <div class="tab-container">
+                <asp:LinkButton CausesValidation="false" ID="lenderTab" runat="server" CssClass="tab-button" style="padding: 10px 12px;" OnClick="lenderTab_Click">Lender</asp:LinkButton>
+                <asp:LinkButton CausesValidation="false" ID="borrowerTab" runat="server" CssClass="tab-button" style="padding: 10px 12px;" OnClick="borrowerTab_Click">Borrower</asp:LinkButton>
+            </div>
+
+            <div class="nav-item dropdown">
+                <div class="dropdown-menu" id="borrowerLinks" runat="server" style="display:none;">
+                    <a href="1-Client Homepage.aspx" class="dropdown-link">Homepage</a>
+                    <a href="4-Borrower Apply For Financing.aspx" class="dropdown-link" >Apply for Financing</a>
+                    <a href="5-Borrower My Application.aspx" class="dropdown-link" >My Application</a>
+                    <a href="61-Borrower My Financing.aspx" class="dropdown-link" >My Financing</a>
+                    <a href="3-Borrower My Profile.aspx" class="dropdown-link" >My Profile</a>
+                </div>
+
+                <div class="dropdown-menu" id="lenderLinks" runat="server" style="display:none;">
+                    <a href="1-Client Homepage.aspx" class="dropdown-link" >Homepage</a>
+                    <a href="71-Lender My Notes.aspx" class="dropdown-link" >My Notes</a>
+                    <a href="34-Lender My Profile.aspx" class="dropdown-link" >My Profile</a>
+                </div>
+            </div>
+        </nav>
+                
+        
+        <div id="container-body-content">
+            <!--Actual Content-->
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
+
+

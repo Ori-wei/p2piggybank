@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrower Apply Financing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8e8e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            width: 450px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+            button:disabled {
+                background-color: #ccc;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <img src="path_to_p2p_logo.png" alt="P2PiggyBank Logo">
+        </div>
+        <h1 class="title">Apply for Financing</h1>
+        <form>
+            <label for="amount">Financing Amount *</label>
+            <input type="text" id="amount" placeholder="Financing Amount">
+
+            <label for="duration">Note Duration (Month) *</label>
+            <input type="text" id="duration" placeholder="Note Duration (Month)">
+
+            <label for="purpose">Purpose of Financing *</label>
+            <select id="purpose">
+                <option value="" disabled selected>Choose one</option>
+                <!-- Add your options here -->
+            </select>
+
+            <button type="submit" disabled>Next ></button>
+            <button type="button"> < Back</button>
+        </form>
+    </div>
+
+</body>
+</html>

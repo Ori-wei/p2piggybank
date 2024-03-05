@@ -1,0 +1,163 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body {
+    font-family: Inter;
+}
+
+.table-title{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.tables {
+    max-width: 1300px;
+    margin: 20px auto; /* Adjust as necessary */
+    font-family: Inter;
+}
+
+.scrollable-gridview {
+    overflow-x: auto; /* Enables horizontal scrollbar if needed */
+    white-space: nowrap; /* Ensures the content extends as needed */
+}
+
+.scrollable-gridview .gridview {
+    width: auto !important; /* Allows the GridView to expand horizontally */
+}
+
+.tables .gridview {
+    border-radius: 7.693px;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional shadow */
+    border: 0.962px solid #EAECF0;
+}
+
+.tables th {
+    color: #667085; /* Dark grey text for headers */
+    text-align: left;
+    padding: 12px 15px; /* Adjust padding as necessary */
+    font-size: 16px; /* Adjust font size as necessary */
+    border-bottom: 0.962px solid #EAECF0;
+    background: #FCFCFD;
+}
+
+.tables td {
+    padding: 12px 15px; /* Adjust padding as necessary */
+    border-bottom: 0.962px solid #EAECF0; /* Light grey border for rows */
+    text-align: left; /* Align text to the left */
+    font-size: 14px; /* Adjust font size as necessary */
+}
+
+.tables tr:hover {
+    background-color: #f5f5f5; /* Light grey background on row hover */
+}
+
+.tableButton {
+    border-radius: 10px;
+    background: #AFBCD5;
+    color: white;
+    padding: 5px 10px; /* Adjust padding as necessary */
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Add styles for 'verified' state if needed */
+.tableButtonVerified {
+    border-radius: 10px;
+    color: white;
+    background-color: #555;
+    padding: 5px 10px;
+    border: none;
+    cursor: default;
+    text-decoration: none;
+}
+
+.detail-box {
+    display: flex;
+    justify-content: space-around; /*This will space your details views evenly */
+    align-items: flex-start; /*This will align them to the top */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 7.693px;
+    background-color: white;
+    max-width: 1000px;
+}
+
+
+.details {
+    /*flex: 1; This will make each .details div take up equal space*/
+    padding: 0px; /* Optional: Adds some space around the DetailsView */
+    background-color: white;
+    border: hidden;
+}
+
+.details td {
+    padding: 10px 10px; /* Cell padding for spacing */
+    border: none; /* Add a bottom border to each cell for separation */
+    text-align: left;
+    font-size: 16px;
+}
+
+.form-row {
+    flex-wrap: wrap;
+    align-items: center; /* This will vertically align items if the label and input are of different heights */
+    justify-content: center; /* This will create space between the label and input */
+    background-color: white;
+    padding: 3px 0px 25px 50px;
+    max-width: 500px;
+    flex: 1;
+}
+
+.label-with-buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.label-with-buttons .aspNetControl {
+    margin-left: 30px; /* Space between label and button */
+}
+
+.form-field {
+    display: flex;
+    align-items: center;
+    margin: 30px; /* Space between rows */
+}
+
+/* ====================================== */
+/* ============= Tab design ==============*/
+/* ====================================== */
+
+.tab-container {
+    display: inline-block; /* Align tabs in a row */
+    border: 4px solid #667085;
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures the child elements don't overflow the rounded corners */
+    font-size: 0;
+}
+
+.tab-button {
+    background: #667085; /* Light gradient effect */
+    border: #667085; /* No border for individual tabs */
+    padding: 10px 20px; /* Spacing inside each tab */
+    text-align: center; /* Center the text inside the tab */
+    font-size: 16px; /* Size of the font */
+    color: white; /* font color */
+    text-decoration: none; /* No underline for the link */
+    display: inline-block; /* Display as inline-block for proper spacing */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Style for the active tab */
+.active-tab {
+    background: white;
+    color: #667085;
+}
+
+/* Style to visually separate tabs */
+.tab-button:not(:first-child) {
+    border-left: 0px solid #667085; /* Separator between tabs */
+}

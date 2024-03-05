@@ -1,0 +1,36 @@
+﻿body {
+}
+
+#noteTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#noteTable th, #noteTable td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+#noteTable th {
+    background-color: #f5f5f5;
+    color: #333;
+    font-weight: bold;
+}
+
+#noteTable td {
+    color: #667085;
+}
+
+.detail-button {
+    padding: 8px 16px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.detail-button:hover {
+    background-color: #4cae4c;
+}

@@ -1,0 +1,87 @@
+﻿body { 
+}
+
+.sub-title{
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.financial-details {
+    /*display: flex;*/
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-family: Inter;
+}
+
+.info-section {
+    padding: 15px;
+    /*width: 47%;  Adjust as needed */
+}
+
+.info-section label{
+    width: 700px;
+    padding-right: 50px;
+}
+
+.return-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.invest-decision {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    font-family: Inter;
+    font-size: 16px;
+    width: 47%;
+}
+
+.invest-decision input {
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.invest-button {
+    padding: 10px 20px;
+    background-color: #AFBCD5;
+    font-weight: 600;
+    color: #FFFEF9;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: Inter;
+    font-size: 15px;
+}
+
+.payment-breakdown {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Inter;
+    font-size: 20px;
+    width: 47%;
+}
+
+.payment-breakdown-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.payment-breakdown-table th, .payment-breakdown-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+

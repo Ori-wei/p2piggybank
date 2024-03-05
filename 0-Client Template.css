@@ -1,0 +1,145 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #FFFEF9;
+    margin: 0;
+    padding: 0;
+}
+
+#logo {
+    position: fixed;
+    top: 20px;
+    left: 35px;
+    z-index: 1000;
+    width: 200px;
+    height: 183px;
+}
+
+.navbar {
+    position: fixed;
+    top: 210px;
+    left: 30px;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 40px;
+    box-shadow: 0 4px 35px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 180px;
+    height: 360px;
+    z-index: 999;
+    font-family: Inter;
+}
+
+.nav-item {
+    width: 100%;
+    padding: 10px 15px;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    flex-direction: column;
+    padding-left: 0;
+    color: black;
+    font-size: 20px;
+    font-family: Inter;
+}
+
+/* Dropdown Menu Link Styles */
+.dropdown-link {
+    text-decoration: none;
+    color: #667085;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 15px;
+    display: block;
+    width: 90%;
+}
+
+.dropdown-link:hover {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+}
+
+/*Dropdown Toggle Styles */
+.dropdown-toggle {
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+}
+
+/* Button Styles */
+#ConnectWalletFrame {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    z-index: 1000;
+    width: 220px;
+    height: 64px;
+    background: #AFBCD5;
+    border-radius: 10px;
+}
+
+#ConnectWalletFrame:hover{
+    cursor: pointer;
+}
+
+#btnConnectWallet {
+    left: 23px;
+    top: 23px;
+    position: absolute;
+    color: #FFFEF9;
+    font-size: 15px;
+    font-family: Inter;
+    font-weight: 600;
+    word-wrap: break-word;
+    border-color: none;
+    background-color: none;
+    box-shadow: 0 4px 35px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+#container-body-content {
+    margin-top: 120px;
+    margin-left: 270px;
+    margin-right: 20px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+/* ====================================== */
+/* ============= Tab design ==============*/
+/* ====================================== */
+
+.tab-container {
+    display: inline-block; /* Align tabs in a row */
+    border: 4px solid #667085;
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures the child elements don't overflow the rounded corners */
+    font-size: 0;
+}
+
+.tab-button {
+    background: #667085; /* Light gradient effect */
+    border: #667085; /* No border for individual tabs */
+    padding: 10px 20px; /* Spacing inside each tab */
+    text-align: center; /* Center the text inside the tab */
+    font-size: 16px; /* Size of the font */
+    color: white; /* font color */
+    text-decoration: none; /* No underline for the link */
+    display: inline-block; /* Display as inline-block for proper spacing */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Style for the active tab */
+.active-tab {
+    background: white;
+    color: #667085;
+}
+
+/* Style to visually separate tabs */
+.tab-button:not(:first-child) {
+    border-left: 0px solid #667085; /* Separator between tabs */
+}
