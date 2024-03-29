@@ -24,7 +24,7 @@
         /* Dropdown Menu Link Styles */
         .dropdown-link {
             text-decoration: none;
-            color: #667085;
+            color: #dba83d;
             font-size: 16px;
             font-weight: 600;
             padding: 25px 15px;
@@ -33,8 +33,9 @@
         }
 
         .dropdown-link:hover {
-            background-color: #f8f8f8;
+            background-color: #dba83d;
             border-radius: 10px;
+            color: white;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
@@ -136,14 +137,14 @@
         <section>
             <!-- Logo -->
             <a href="Admin Integrity Check.aspx" title="Go to Integrity Check">
-                <img id="logo" src="images/logo-lightbg.png" alt="Logo" />
+                <img id="logo" src="images/logo-darkbg2.png" alt="Logo" />
             </a>
 
             <asp:HiddenField ID="publicKeyHolder" runat="server" value=""/>
 
             <!-- Connect Wallet Button -->
             <div id="ConnectWalletFrame">
-                <asp:Button ID="btnConnectWallet" runat="server" Text="CONNECT WALLET" BackColor="#AFBCD5" BorderStyle="None" BorderWidth="0px" OnClientClick="signIn(); return false;" />
+                <asp:Button ID="btnConnectWallet" runat="server" Text="CONNECT WALLET" BackColor="#dba83d" BorderStyle="None" BorderWidth="0px" OnClientClick="signIn(); return false;" />
             </div>
         </section>
         

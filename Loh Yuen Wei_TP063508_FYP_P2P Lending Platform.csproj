@@ -180,6 +180,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="0-Client Login Page.aspx" />
+    <Content Include="0-Client Login Page.css" />
     <Content Include="1-Client Homepage.css" />
     <Content Include="3-Borrower My Profile.css" />
     <Content Include="61-Borrower My Financing.asmx" />
@@ -238,6 +240,7 @@
     <Content Include="testHashWithMaster.aspx" />
     <Content Include="Encryption.aspx" />
     <Content Include="Admin Financing Approval 3.aspx" />
+    <Content Include="01-Client Identity.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -277,6 +280,13 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="0-Client Login Page.aspx.cs">
+      <DependentUpon>0-Client Login Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="0-Client Login Page.aspx.designer.cs">
+      <DependentUpon>0-Client Login Page.aspx</DependentUpon>
+    </Compile>
     <Compile Include="61-Borrower My Financing.asmx.cs">
       <DependentUpon>61-Borrower My Financing.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -537,6 +547,13 @@
     </Compile>
     <Compile Include="Admin Financing Approval 3.aspx.designer.cs">
       <DependentUpon>Admin Financing Approval 3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="01-Client Identity.aspx.cs">
+      <DependentUpon>01-Client Identity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="01-Client Identity.aspx.designer.cs">
+      <DependentUpon>01-Client Identity.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -28,18 +28,18 @@ body {
     border-radius: 7.693px;
     border-collapse: collapse;
     width: 100%;
-    background-color: #FFFFFF;
+    background-color: black;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional shadow */
     border: 0.962px solid #EAECF0;
 }
 
 .tables th {
-    color: #667085; /* Dark grey text for headers */
+    color: #dba83d; /* Dark grey text for headers */
     text-align: left;
     padding: 12px 15px; /* Adjust padding as necessary */
     font-size: 16px; /* Adjust font size as necessary */
     border-bottom: 0.962px solid #EAECF0;
-    background: #FCFCFD;
+    background: black;
 }
 
 .tables td {
@@ -50,12 +50,12 @@ body {
 }
 
 .tables tr:hover {
-    background-color: #f5f5f5; /* Light grey background on row hover */
+    background-color: black; /* Light grey background on row hover */
 }
 
 .tableButton {
     border-radius: 10px;
-    background: #AFBCD5;
+    background: #dba83d;
     color: white;
     padding: 5px 10px; /* Adjust padding as necessary */
     border: none;
@@ -81,7 +81,7 @@ body {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 7.693px;
-    background-color: white;
+    background-color: black;
     max-width: 1000px;
 }
 
@@ -89,7 +89,7 @@ body {
 .details {
     /*flex: 1; This will make each .details div take up equal space*/
     padding: 0px; /* Optional: Adds some space around the DetailsView */
-    background-color: white;
+    background-color: black;
     border: hidden;
 }
 
@@ -104,7 +104,7 @@ body {
     flex-wrap: wrap;
     align-items: center; /* This will vertically align items if the label and input are of different heights */
     justify-content: center; /* This will create space between the label and input */
-    background-color: white;
+    background-color: black;
     padding: 3px 0px 25px 50px;
     max-width: 500px;
     flex: 1;
@@ -133,19 +133,19 @@ body {
 
 .tab-container {
     display: inline-block; /* Align tabs in a row */
-    border: 4px solid #667085;
+    border: 4px solid #dba83d;
     border-radius: 10px; /* Rounded corners */
     overflow: hidden; /* Ensures the child elements don't overflow the rounded corners */
     font-size: 0;
 }
 
 .tab-button {
-    background: #667085; /* Light gradient effect */
-    border: #667085; /* No border for individual tabs */
+    background: #dba83d; /* Light gradient effect */
+    border: #dba83d; /* No border for individual tabs */
     padding: 10px 20px; /* Spacing inside each tab */
     text-align: center; /* Center the text inside the tab */
     font-size: 16px; /* Size of the font */
-    color: white; /* font color */
+    color: #282c37; /* font color */
     text-decoration: none; /* No underline for the link */
     display: inline-block; /* Display as inline-block for proper spacing */
     cursor: pointer; /* Pointer cursor on hover */
@@ -153,11 +153,11 @@ body {
 
 /* Style for the active tab */
 .active-tab {
-    background: white;
-    color: #667085;
+    background: #282c37;
+    color: #dba83d;
 }
 
 /* Style to visually separate tabs */
 .tab-button:not(:first-child) {
-    border-left: 0px solid #667085; /* Separator between tabs */
+    border-left: 0px solid #dba83d; /* Separator between tabs */
 }

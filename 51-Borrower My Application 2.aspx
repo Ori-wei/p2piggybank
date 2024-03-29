@@ -368,8 +368,8 @@
     <div class="label-with-buttons">
         <asp:Label ID="Label3" runat="server" Text="Your Decision: " Width="200px"></asp:Label>
         <div class="buttons">
-            <asp:Button ID="Reject" runat="server" Text="Reject" CssClass="aspNetControl tableButton" BackColor="white" ForeColor="#667085" OnClick="Reject_Click"/>
-            <asp:Button ID="Accept" runat="server" Text="Accept" CssClass="aspNetControl tableButton" BackColor="#AFBCD5" ForeColor="white" OnClientClick="createNote(); return false;" />
+            <asp:Button ID="Reject" runat="server" Text="Reject" CssClass="aspNetControl tableButton" BackColor="white" ForeColor="#dba83d" OnClick="Reject_Click"/>
+            <asp:Button ID="Accept" runat="server" Text="Accept" CssClass="aspNetControl tableButton" BackColor="#dba83d" ForeColor="white" OnClientClick="createNote(); return false;" />
         </div>
     </div>
     <asp:Label ID="appSignature" runat="server" Text="" Width="200px"></asp:Label>

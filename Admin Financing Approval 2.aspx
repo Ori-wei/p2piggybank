@@ -165,8 +165,8 @@
             <div class="label-with-buttons">
                 <asp:Label ID="Label3" runat="server" Text="Decision" Width="120px"></asp:Label>
                 <div class="buttons">
-                    <asp:Button ID="Approve" runat="server" Text="Approve" CssClass="aspNetControl tableButton" BackColor="#00FF99" OnClick="Approve_Click" />
-                    <asp:Button ID="Decline" runat="server" Text="Decline" CssClass="aspNetControl tableButton" BackColor="#FF6666" OnClick="Decline_Click" />
+                    <asp:Button ID="Approve" runat="server" Text="Approve" CssClass="aspNetControl tableButton" BackColor="#dba83d" ForeColor="white" OnClick="Approve_Click" />
+                    <asp:Button ID="Decline" runat="server" Text="Decline" CssClass="aspNetControl tableButton" BackColor="white" ForeColor="#dba83d" OnClick="Decline_Click" />
                 </div>
             </div>
         </div>

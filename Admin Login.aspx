@@ -103,13 +103,13 @@
 
         <!--Logo-->
         <div id="logo">
-            <img src="images/logo-lightbg.png" alt="P2PIGGY Logo" />
+            <img src="images/logo-darkbg2.png" alt="P2PIGGY Logo" />
         </div>
         <!--Admin Module-->
         <div class="formTitle">Admin Module</div>
         <!--Button-->
         <div id="ConnectWalletFrame">
-            <asp:Button ID="btnConnectWallet" runat="server" Text="CONNECT WALLET" BackColor="#AFBCD5" BorderStyle="None" BorderWidth="0px" OnClientClick="signIn(); return false;" />
+            <asp:Button ID="btnConnectWallet" runat="server" Text="CONNECT WALLET" BackColor="#dba83d" BorderStyle="None" BorderWidth="0px" OnClientClick="signIn(); return false;" />
         </div>
 
         <asp:HiddenField ID="publicKeyHolder" runat="server" value=""/>

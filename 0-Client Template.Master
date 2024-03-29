@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="table.css" />
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
-        
     </asp:ContentPlaceHolder>
 </head>
+
 <body>
     <form runat="server">
         <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
@@ -107,7 +108,7 @@
         <section>
             <!-- Logo -->
             <a href="1-Client HomePage.aspx" title="Go to Homepage">
-                <img id="logo" src="images/logo-lightbg.png" alt="Logo" />
+                <img id="logo" src="images/logo-darkbg2.png" alt="Logo" />
             </a>
 
             <asp:HiddenField ID="publicKeyHolder" runat="server" value=""/>
@@ -115,7 +116,7 @@
             <!-- Connect Wallet Button -->
             <div id="ConnectWalletFrame">
                 <asp:Button ID="btnConnectWallet" runat="server" Text="CONNECT WALLET" 
-                    BackColor="#AFBCD5" BorderStyle="None" BorderWidth="0px" OnClientClick="signIn(); return false;" />
+                    BackColor="#dba83d" BorderStyle="None" BorderWidth="0px" OnClientClick="signIn(); return false;" />
             </div>
         </section>
         
@@ -129,7 +130,7 @@
 
             <div class="nav-item dropdown">
                 <div class="dropdown-menu" id="borrowerLinks" runat="server" style="display:none;">
-                    <a href="1-Client Homepage.aspx" class="dropdown-link">Homepage</a>
+                    <a href="1-Client Homepage.aspx" class="dropdown-link">Dashboard</a>
                     <a href="4-Borrower Apply For Financing.aspx" class="dropdown-link" >Apply for Financing</a>
                     <a href="5-Borrower My Application.aspx" class="dropdown-link" >My Application</a>
                     <a href="61-Borrower My Financing.aspx" class="dropdown-link" >My Financing</a>
@@ -137,8 +138,8 @@
                 </div>
 
                 <div class="dropdown-menu" id="lenderLinks" runat="server" style="display:none;">
-                    <a href="1-Client Homepage.aspx" class="dropdown-link" >Homepage</a>
-                    <a href="71-Lender My Notes.aspx" class="dropdown-link" >My Notes</a>
+                    <a href="1-Client Homepage.aspx" class="dropdown-link" >Dashboard</a>
+                    <a href="71-Lender My Notes.aspx" class="dropdown-link" >Invested Notes</a>
                     <a href="34-Lender My Profile.aspx" class="dropdown-link" >My Profile</a>
                 </div>
             </div>
